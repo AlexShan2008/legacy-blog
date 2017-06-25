@@ -54,4 +54,6 @@ app.use('/', index);
 app.use('/user', user);
 app.use('/article', article);
 app.use('/category', category);
-app.listen(8080);
+app.listen(8080,function () {
+    console.log("Server start usccess");
+});
