@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //设置模板引擎
 app.set('view engine', 'html');
 //设置模板的存放目录
-app.set('views', path.resolve('views'));
+app.set('views', path.resolve('client/views'));
 
 //如果模板后缀是HTML的话，使用EJS模板引擎的方法来进行渲染
 app.engine('html', require('ejs').__express);
@@ -40,6 +40,7 @@ app.use(function (req, res,next) {
 });
 //静态文件中间件的参数是静态文件根目录
 app.use(express.static(path.resolve('node_modules')));
+app.use(express.static(path.resolve('client/static')));
 
 //返回一个路由中间件
 let index = require('./routes/index');
@@ -55,5 +56,5 @@ app.use('/user', user);
 app.use('/article', article);
 app.use('/category', category);
 app.listen(8080,function () {
-    console.log("Server start usccess");
+    console.log("Server start success");
 });

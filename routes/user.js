@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-let User=require('../model').User;
+let User=require('../server/model').User;
 let utils =require('./utils');
 //当客户端访问呢/user/signup路径的时候
 router.get('/signup',function (req,res) {

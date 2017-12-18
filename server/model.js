@@ -3,10 +3,10 @@
  */
 //1.引入mongoose
 let mongoose = require('mongoose');
-let config =require('./config');
+let config =require('../config');
 
 //
-mongoose.connect(config.dbUrl);
+mongoose.connect(config.dbUrl,{ useMongoClient: true });
 
 let UserSchema = new mongoose.Schema({
     username: String,

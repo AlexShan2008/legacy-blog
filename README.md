@@ -18,6 +18,10 @@ npm install express ejs body-parser debug express-session connect-mongo mongoose
 ##在mongodb安装目录下-bin文件夹下面用cmd运行如下命令
 ###mongod --dbpath=C:\Mongodb\data   启动数据库服务端
 
+###powershell  :
+ ./mongod --dbpath=c:\Mongodb\data
+
+
 ##mongo  数据库客户端
 
 ##mongoVUE 数据库客户端
