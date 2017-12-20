@@ -1,0 +1,96 @@
+/**clear margin & padding**/
+body, div, h1, h2, h3, h4, h5, h6, hr, p,
+blockquote, /**structural elements**/
+dl, dt, dd, ul, ol, li, /**list elements**/
+pre, /**text formatting elements**/
+form, fieldset, legend, button, input, textarea, /**form elements**/
+th, td, /**table elements**/
+
+img {
+  border: medium none;
+  margin: 0;
+  padding: 0;
+}
+
+/**setting default style**/
+body, button, input, select, textarea {
+  font: 12px/1.5 arial, sans-serif;
+}
+
+input {
+  padding-top: 0;
+  padding-bottom: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font:{
+    weight: normal;
+    size: 100%;
+  }
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font:{
+    weight: normal;
+    style: normal;
+  }
+}
+
+/**Reset list style**/
+ul, ol {
+  list-style: none
+}
+
+/**Reset hyperlink**/
+a {
+  text-decoration: none;
+  color: #333;
+  &:hover {
+    text-decoration: none;
+    color: #333;
+  }
+}
+
+
+/**Reset img border**/
+table, img {
+  border: 0
+}
+
+table {
+  border:{
+    collapse: collapse;
+    spacing: 0;
+  }
+}
+
+.clearfix {
+  display: inline-block;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}
+.content{
+  width: 1200px;
+  margin: 0 auto;
+}
+.content-wrap{
+  margin-top: 64px;
+}
+.borderTop{
+  border-top:1px #e1e4e8 solid !important;
+}
+h1{
+  font-size: 32px;
+}
+h2{
+  font-size: 18px;
+}

@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import './static/css/common.scss'
 
 /*引入组件*/
 import Wrap from './container/wrap/wrap';

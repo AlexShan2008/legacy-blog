@@ -5,7 +5,8 @@ function Logo() {
     return (
         <div className="logo">
             <a href="/">
-                Shan&Guo
+                {/*Shan&Guo*/}
+                <img src="img/logo.png" alt="AlexShan"/>
             </a>
         </div>
     )
@@ -23,13 +24,12 @@ function Nav() {
     )
 }
 
-function Profile() {
+function Signin() {
     return (
-        <div className="profile">
+        <div className="signin">
             <ul className="clearfix">
-                <li><a href="/user/signup">注册</a></li>
-                <li><a href="/user/signin">登录</a></li>
-                <li><a href="/user/signout">退出</a></li>
+                <li><a href="/user/signin">Sign in</a></li>
+                <li><a href="/user/signout">Sign out</a></li>
             </ul>
         </div>
     )
@@ -42,11 +42,13 @@ export default class extends Component {
 
     render() {
         return (
-            <header className="header">
-                <Logo />
-                <Nav />
-                <Profile />
-            </header>
+            <div className="header-wrap">
+                <header className="header">
+                    <Logo />
+                    <Nav />
+                    <Signin />
+                </header>
+            </div>
         )
     }
 }

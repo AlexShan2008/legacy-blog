@@ -5,7 +5,7 @@ const config = {
     // 页面入口文件配置
     entry: {
         main :'./index.js',
-        login :'./container/login/login.js'
+        login :'./container/user/signin.js'
     },
     // 入口文件输出配置；path：编译后文件出口；publicPath：引用编译后文件的base路径；
     output: {
