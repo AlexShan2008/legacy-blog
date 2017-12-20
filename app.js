@@ -2,10 +2,20 @@ let express = require('express');
 let path = require('path');
 let bodyParser = require('body-parser');
 let session = require('express-session');
-let flash =require('connect-flash');//消息提示模块，提示后就消失了。
+let flash = require('connect-flash');//消息提示模块，提示后就消失了。
 let MongoStore = require('connect-mongo')(session);
 let app = express();
 let config = require("./config");
+// let mongodb = require('mongodb');
+// let MongoClient = mongodb.MongoClient;
+
+//连接到admin数据库
+// MongoStore.connect("mongodb://localhost:27017/myblog", function (err, db) {
+//     if (err) {
+//         console.log(err);
+//         return
+//     }
+// });
 
 //使用bodyParser中间件
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,7 +30,7 @@ app.set('views', path.resolve('client/views'));
 app.engine('html', require('ejs').__express);
 //使用会话中间件；
 app.use(session({
-    secret: 'zfpx',
+    secret: 'shan',
     resave: true,
     saveUninitialized: true,//保存未初始化的session，
     store: new MongoStore({
@@ -29,7 +39,7 @@ app.use(session({
 }));
 //req.flash
 app.use(flash());//必须放在session和模板赋值的中间；
-app.use(function (req, res,next) {
+app.use(function (req, res, next) {
     //给res.locals赋值，意味着所有模板都可以用；
     // res.locals.success = req.session.success;
     // res.locals.error = req.session.error;
@@ -55,6 +65,7 @@ app.use('/', index);
 app.use('/user', user);
 app.use('/article', article);
 app.use('/category', category);
-app.listen(8080,function () {
-    console.log("Server start success");
+
+app.listen(8080, function () {
+    console.log("Server start success Port:8080");
 });

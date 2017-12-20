@@ -2,7 +2,6 @@
  * Created by ShanGuo on 2017/12/18.
  */
 import React , { Component } from 'react';
-// import App from '/client/static/output/js/views/app.bundle';
 
 class Clock extends Component{
     constructor (props){
@@ -37,14 +36,10 @@ class Clock extends Component{
         return(
         <div>
         <h1>Hello, world!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <h2>It is {this.state.date.toLocaleTimeString()}</h2>
         </div>
     )
     }
 }
 
-React.render(
-    Clock,
-    document.getElementById('root')
-);
-
+export default Clock;
