@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //设置模板引擎
 app.set('view engine', 'html');
 //设置模板的存放目录
-app.set('views', path.resolve('client/views'));
+app.set('views', path.resolve('client/container'));
 
 //如果模板后缀是HTML的话，使用EJS模板引擎的方法来进行渲染
 app.engine('html', require('ejs').__express);

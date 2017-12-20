@@ -4,7 +4,7 @@
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
 // import Clock from '../../components/clock';
-// // import App from '/client/static/output/js/views/app.bundle';
+// // import App from '/client/static/output/js/container/app.bundle';
 //
 //
 // ReactDOM.render(

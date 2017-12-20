@@ -1,0 +1,76 @@
+.header {
+  height: 64px;
+  background-color: #fff;
+  //border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), inset 0 -1px 0 0 #e6e6e6;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  ul{
+    li{
+      float: left;
+    }
+  }
+  .logo{
+    //background: url("/img/avator/benqijiemu.jpg")no-repeat;
+    padding:0 15px;
+    float: left;
+    font-size: 22px;
+    height: 100%;
+    display: table;
+    a{
+      color: #3367d6;
+      font-family: "Arial Rounded MT Bold";
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+  .nav{
+    float: left;
+    margin-left: 15px;
+    height:100%;
+    ul{
+      height:100%;
+      li{
+        margin: 0 10px;
+        height: 100%;
+        display: table;
+        a{
+          font-size: 14px;
+          display: table-cell;
+          vertical-align: middle;
+          color:#757575;
+        }
+        a:hover{
+          padding-top:2px;
+          border-bottom: 2px solid #3367d6;
+          color: #000;
+        }
+        a.active{
+          padding-top:2px;
+          border-bottom: 2px solid #3367d6;
+          color: #000;
+        }
+      }
+    }
+
+  }
+  .profile{
+    float: right;
+    display: table;
+    ul{
+      li{
+        a{
+
+        }
+      }
+    }
+  }
+
+  .inner {
+    color: #333;
+    font-size: 20px;
+  }
+}

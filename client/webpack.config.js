@@ -5,11 +5,12 @@ const config = {
     // 页面入口文件配置
     entry: {
         main :'./index.js',
-        login :'./views/login/login.js'
+        login :'./container/login/login.js'
     },
-    // 入口文件输出配置
+    // 入口文件输出配置；path：编译后文件出口；publicPath：引用编译后文件的base路径；
     output: {
-        path: __dirname +'/static/dist/js',
+        path: path.resolve(__dirname,"static/dist"),
+        publicPath: "/static/",
         filename: '[name].bundle.js'
     },
     module: {
@@ -26,24 +27,6 @@ const config = {
             }
         ]
     },
-    devServer: {
-        historyApiFallback: true,
-        inline:true,
-        port: 3000,
-        headers: {
-            'Access-Control-Allow-Origin': '*'
-        },
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8333/api',
-                pathRewrite: {"^/api" : ""}
-            },
-            '/login': {
-                target: 'http://localhost:8333/login',
-                pathRewrite: {"^/login" : ""}
-            }
-        }
-    },
     // 其他解决方案配置
     resolve: {
         extensions: [' ', '.js', '.jsx', '.css', '.json'],
@@ -57,8 +40,7 @@ const config = {
             output: {
                 comments: false,
             }
-        }),
-        new webpack.HotModuleReplacementPlugin()
+        })
     ]
 };
 
