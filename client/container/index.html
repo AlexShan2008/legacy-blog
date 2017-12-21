@@ -1,37 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%=title%></title>
-    <meta name="keywords" content="blog"/>
-    <meta name="description" content="The blog of AlexShan"/>
-    <!--<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">-->
-</head>
-<body>
-<noscript>
-    You need to enable JavaScript to run this app.
-</noscript>
+<% include ./include/header.html%>
 <!-- 消息提示窗口 -->
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <%if(success){%>
-            <div class="alert alert-success"><%=success%></div>
-            <%}%>
-            <%if(error){%>
-            <div class="alert alert-danger"><%=error%></div>
-            <%}%>
+
+
         </div>
     </div>
     <div id="root">
 
     </div>
 </div>
+
 <script src="/dist/main.bundle.js"></script>
-<div style="display: none">
-    <script src="https://s13.cnzz.com/z_stat.php?id=1271481858&web_id=1271481858" language="JavaScript"></script>
-</div>
-</body>
-</html>
+<% include ./include/footer.html%>

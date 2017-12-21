@@ -11,4 +11,9 @@ router.get('/post',function (req,res) {
     res.render('article/post',{title:'Latest Stories'})
 });
 
+router.get('/topics',function (req,res) {
+    // res.send('文章分类')
+    res.render('article/topics',{title:'Topics'})
+});
+
 module.exports = router;

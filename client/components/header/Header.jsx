@@ -1,4 +1,4 @@
-import './header.scss';
+import './Header.scss';
 import React, {Component} from 'react';
 
 function Logo() {
@@ -6,7 +6,7 @@ function Logo() {
         <div className="logo">
             <a href="/">
                 {/*Shan&Guo*/}
-                <img src="img/logo.png" alt="AlexShan"/>
+                <img src="/img/logo.png" alt="AlexShan"/>
             </a>
         </div>
     )
@@ -19,6 +19,7 @@ function Nav() {
                 <li><a className="active" href="/">Home</a></li>
                 <li><a href="/article/list">Latest Stories</a></li>
                 <li><a href="/article/post">Post Stories</a></li>
+                <li><a href="/article/topics">Topics</a></li>
             </ul>
         </nav>
     )
@@ -35,9 +36,9 @@ function Signin() {
     )
 }
 
-export default class extends Component {
-    constructor() {
-        super();
+class Header extends Component {
+    constructor(props) {
+        super(props);
     }
 
     render() {
@@ -52,3 +53,4 @@ export default class extends Component {
         )
     }
 }
+export default Header;

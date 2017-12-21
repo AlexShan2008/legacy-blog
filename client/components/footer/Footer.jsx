@@ -1,4 +1,4 @@
-import './footer.scss';
+import './Footer.scss';
 import React, {Component} from 'react';
 
 function ICP() {
@@ -12,7 +12,7 @@ function ICP() {
 function Copy() {
     return (
         <div className="copy">
-            &copy;2017 Shan&Guo
+            Copyright&nbsp;&copy;&nbsp;2018 Shan&Guo
         </div>
     )
 }
@@ -21,7 +21,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="footer">
-                <div className="content borderTop">
+                <div className="content">
                     <Copy/>
                     <ICP/>
                 </div>

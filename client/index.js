@@ -6,12 +6,10 @@ import ReactDOM from 'react-dom';
 import './static/css/common.scss'
 
 /*引入组件*/
-import Wrap from './container/wrap/wrap';
+import Wrap from './components/wrap/wrap';
 
 
 ReactDOM.render(
-    <Wrap>
-    </Wrap>,
+    <Wrap />,
     document.getElementById('root')
 );
-

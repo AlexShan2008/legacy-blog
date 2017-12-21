@@ -4,7 +4,7 @@ let User=require('../server/model').User;
 let utils =require('./utils');
 //当客户端访问呢/user/signup路径的时候
 router.get('/signup',function (req,res) {
-    res.render('user/signup',{title:"用户注册"})
+    res.render('user/signup',{title:"Sign up"})
 });
 //提交表单
 router.post('/signup',function (req,res) {
@@ -20,7 +20,7 @@ router.post('/signup',function (req,res) {
 });
 //当客户端访问/user/signin路径
 router.get('/signin',function (req,res) {
-    res.render('user/signin',{title:"用户登录"})
+    res.render('user/signin',{title:"Sign in"})
 });
 
 //用户登录
@@ -32,14 +32,14 @@ router.post('/signin',function (req,res) {
             res.redirect('back');
         }else{
             if(doc){
-                req.flash("success","登录成功");
+                req.flash("success","Sign in success");
                 req.session.user=doc;//把当前登录成功后的session对象中
                 // req.session.success="登录成功"; //消息不会取消。用于显示
                 res.redirect('/')
 
             }else{
             //   失败
-                req.flash("error","登录失败");
+                req.flash("error","Sign in fail");
                 // req.session.success="登录失败";
                 res.redirect('back');
 
@@ -49,7 +49,9 @@ router.post('/signin',function (req,res) {
 });
 //当客户端访问/user/signout路径
 router.get('/signout',function (req,res) {
-    res.send('退出登录')
+    // res.send('Sign out success')
+    req.flash("success","Sign out success");
+
 });
 
 module.exports = router;

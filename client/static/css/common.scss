@@ -1,3 +1,7 @@
+/*
+Public CSS
+*/
+
 /**clear margin & padding**/
 body, div, h1, h2, h3, h4, h5, h6, hr, p,
 blockquote, /**structural elements**/
@@ -26,14 +30,14 @@ input {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font:{
+  font: {
     weight: normal;
     size: 100%;
   }
 }
 
 address, caption, cite, code, dfn, em, strong, th, var {
-  font:{
+  font: {
     weight: normal;
     style: normal;
   }
@@ -54,14 +58,13 @@ a {
   }
 }
 
-
 /**Reset img border**/
 table, img {
   border: 0
 }
 
 table {
-  border:{
+  border: {
     collapse: collapse;
     spacing: 0;
   }
@@ -76,21 +79,45 @@ table {
     clear: both;
     visibility: hidden;
   }
-  * html & { height: 1px }
+  * html & {
+    height: 1px
+  }
 }
-.content{
+
+.float-l {
+  float: left
+}
+
+.float-r {
+  float: right
+}
+
+/*
+Page index
+*/
+.content {
   width: 1200px;
   margin: 0 auto;
 }
-.content-wrap{
-  margin-top: 64px;
+
+.main {
+  padding-top: 64px;
 }
-.borderTop{
-  border-top:1px #e1e4e8 solid !important;
-}
-h1{
-  font-size: 32px;
-}
-h2{
-  font-size: 18px;
+
+.article {
+  background-color: #f1f1f1;
+  &:hover {
+    .readArticle_link {
+      color: #3367d6;
+    }
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
 }

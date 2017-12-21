@@ -3,13 +3,14 @@
  */
 import React , { Component } from 'react';
 import ReactDOM from 'react-dom';
-// import Clock from '../../components/clock';
-// // import App from '/client/static/output/js/container/app.bundle';
-//
-//
-// ReactDOM.render(
-//     <Clock />,
-//     document.getElementById('root')
-// );
+import '../../static/css/common.scss'
 
-alert("login")
+/*引入组件*/
+
+
+ReactDOM.render(
+    <div>
+
+    </div>,
+    document.getElementById('signin')
+);

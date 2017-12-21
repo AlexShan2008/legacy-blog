@@ -6,16 +6,6 @@ let flash = require('connect-flash');//消息提示模块，提示后就消失�
 let MongoStore = require('connect-mongo')(session);
 let app = express();
 let config = require("./config");
-// let mongodb = require('mongodb');
-// let MongoClient = mongodb.MongoClient;
-
-//连接到admin数据库
-// MongoStore.connect("mongodb://localhost:27017/myblog", function (err, db) {
-//     if (err) {
-//         console.log(err);
-//         return
-//     }
-// });
 
 //使用bodyParser中间件
 app.use(bodyParser.urlencoded({extended: true}));
