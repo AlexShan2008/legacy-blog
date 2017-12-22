@@ -1,20 +1,23 @@
 .footer {
   margin-top: 50px;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: 100px;
+  line-height: 100px;
   color: #586069 !important;
   font-size: 12px;
+  vertical-align: middle;
   .content {
     border-top: 1px #e1e4e8 solid !important;
     height: 100%;
     .copy {
       float: left;
-      line-height: 50px;
+    }
+    .icon{
+      width: 30px;
+      vertical-align: middle;
     }
     .ICP {
       float: right;
-      line-height: 50px;
       margin-left: 20px;
     }
   }

@@ -91,6 +91,9 @@ table {
 .float-r {
   float: right
 }
+.dis_i{
+  display: inline-block;
+}
 
 /*
 Page index
@@ -98,6 +101,7 @@ Page index
 .content {
   width: 1200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .main {

@@ -2,7 +2,7 @@
   transform: scale(1.2);
   transition: all 3s ease;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1200px) {
   .pic{
     width: 800px;
     height:480px;
