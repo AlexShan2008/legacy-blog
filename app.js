@@ -1,20 +1,24 @@
-let express = require('express');
-let path = require('path');
-let bodyParser = require('body-parser');
-let session = require('express-session');
-let flash = require('connect-flash');//消息提示模块，提示后就消失了。
-let MongoStore = require('connect-mongo')(session);
-let app = express();
-let config = require("./config");
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const flash = require('connect-flash');//消息提示模块，提示后就消失了。
+const MongoStore = require('connect-mongo')(session);
+const app = express();
+const config = require("./config");
+/*
+*React 同构直出；
+*/
+
 
 //使用bodyParser中间件
 app.use(bodyParser.urlencoded({extended: true}));
 //把会话数据保存在数据库中；
 
-//设置模板引擎
+//设置模板引擎的文件格式；
 app.set('view engine', 'html');
 //设置模板的存放目录
-app.set('views', path.resolve('client/container'));
+app.set('views', path.resolve('client/views'));
 
 //如果模板后缀是HTML的话，使用EJS模板引擎的方法来进行渲染
 app.engine('html', require('ejs').__express);

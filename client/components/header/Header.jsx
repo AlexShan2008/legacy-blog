@@ -1,5 +1,6 @@
 import './Header.scss';
 import React, {Component} from 'react';
+import Signin from '../signin/Signin';
 
 function Logo() {
     return (
@@ -25,21 +26,21 @@ function Nav() {
     )
 }
 
-function Signin() {
-    return (
-        <div className="signin">
-            <ul className="clearfix">
-                <li><a href="/user/signin">Sign in</a></li>
-                <li><a href="/user/signout">Sign out</a></li>
-            </ul>
-        </div>
-    )
-}
-
 class Header extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            showFlag: "layer-wrap"
+        };
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick(){
+        this.setState({
+        })
+    }
+
+
 
     render() {
         return (

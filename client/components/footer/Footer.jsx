@@ -27,7 +27,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="footer">
-                <div className="content">
+                <div className="content text-center">
                     <Copy/>
                     <Icon/>
                     <ICP/>

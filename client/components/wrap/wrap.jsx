@@ -15,7 +15,7 @@ class Wrap extends Component {
         return (
             <div className="app-container">
                 <Header />
-                <div className="content main">
+                <div className="content main text-center">
                     <a href="/article-01" className="article clearfix">
                         <Pic url="/img/banner/banner-01_small.jpg" name="beijing"/>
                         <Text />
