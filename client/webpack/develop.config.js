@@ -1,51 +1,46 @@
 const webpack = require('webpack');
 const path = require('path');
-const config = {
-    // 页面入口文件配置;main、signin为【name】;
-    entry: {
-        main: ["babel-polyfill", './client/index.js']
-        // main: ["babel-polyfill", './index.js']
-        // signin: './containers/user/signin.js'
-    },
-    // 入口文件输出配置；path：编译后文件出口；publicPath：引用编译后文件的base路径；
-    output: {
-        path: path.resolve(__dirname, "static/dist"),
-        publicPath: "/static/",
-        filename: '[name].bundle.js'
-    },
-    module: {
-        // 加载器配置
-        loaders: [
-            {
-                test: /\.(jsx|js)$/,
-                exclude: path.resolve(__dirname, '../node_modules/'),
-                use: 'babel-loader',
-            },
-            {
-                test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-            }
-        ]
-    },
-    // 其他解决方案配置
-    resolve: {
-        extensions: [' ', '.js', '.jsx', '.css', '.json'],
-    },
-    devServer:{
-        inline:true,
-        port:8080 //端口你可以自定义
-    },
-    // 插件项
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-            output: {
-                comments: false,
-            }
-        })
-    ]
+const webpackMerge = require('webpack-merge');
+const PUBLICPATH = '/static/';
+const PORT = '9090';
+const ENV = process.env.NODE_ENV || 'develop';
+
+const options = {
+    publicPath: PUBLICPATH,
+    // globals: {
+    //     'process.env': {
+    //         'NODE_ENV': JSON.stringify(ENV)
+    //     },
+    //     '__DEV__': ENV === 'develop',
+    //     '__PROD__': ENV === 'production',
+    //     '__TEST__': ENV === 'test'
+    // },
+    // beforePlugins: [
+    //     new webpack.HotModuleReplacementPlugin()
+    // ]
 };
 
-module.exports = config;
+module.exports = function (args) {
+    options.ROOTPATH = args.ROOTPATH;
+    options.env = args.env;
+    return webpackMerge(require('./base.config')(options), {
+        devServer: {
+            // contentBase: path.join(args.ROOTPATH, './client'),
+            historyApiFallback: true,
+            inline: true,
+            hot: true,
+            port: PORT,
+            host: '0.0.0.0',
+            proxy: {
+                '/': {
+                    bypass: function (req, res, proxyOptions) {
+                        console.log('Skipping proxy for browser request.');
+                        return `./client/containers/index.html`
+                        // return `${PUBLICPATH}index.html`
+                    }
+                }
+            }
+        },
+        plugins: []
+    })
+};

@@ -1,13 +1,101 @@
-.showPassword-btn{
+.showPassword-btn {
   display: block;
   text-align: right;
-  margin: 65px 0 16px;
-  &:hover{
-    text-decoration: underline;
-    color: #3367d6;
-  }
-  button{
+  margin-top: 20px;
+  button {
+    cursor: pointer;
+    outline: none;
     background-color: transparent;
     font-size: 16px;
+    color: #3367d6;
+    &:hover {
+      text-decoration: underline;
+      color: #0754f8;
+    }
   }
+}
+
+.signin-btn {
+  border: none;
+  width: 400px;
+  button {
+    border-radius: 4px !important;
+    width: 100%;
+    transition: background 0.3s, border-color 0.3s !important;
+    font-size: 19px;
+    padding: 12px 24px;
+    background-color: #3367d6;
+    text-align: center;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 700;
+    &:hover {
+      background-color: #0754f8;
+    }
+  }
+
+}
+
+.sepLine-wrap {
+  overflow: hidden;
+  text-align: center;
+  .sepLine-text:before, .sepLine-text:after {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid #e4e4e4;
+    top: 50%;
+    width: 5000px;
+  }
+  .sepLine-text:before {
+    right: 100%;
+  }
+  .sepLine-text {
+    position: relative;
+    font: {
+      weight: normal;
+      family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+      size: 15px !important;
+    }
+    word-wrap: break-word;
+    line-height: 18px;
+    letter-spacing: 0.2px;
+    padding: 0 16px 0 16px;
+    color: #767676;
+    display: inline;
+  }
+  .sepLine-text:after {
+    left: 100%;
+  }
+}
+
+.reg-warp {
+  width: 400px;
+  height: 50px;
+  margin-top: 20px;
+  display: table;
+  .reg-left, .reg-btn {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .reg-left{font-size: 16px;}
+  .reg-btn {
+    float: right;
+    margin-top: 2px;
+    padding: 10px;
+    background:none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #3367d6;
+    text-align: center;
+    color: #3367d6;
+    font-size: 16px;
+    transition: all .3s ease;
+    &:hover{
+      background-color: #3367d6;
+      color: #fff;
+      transition: all .3s ease;
+    }
+  }
+
 }

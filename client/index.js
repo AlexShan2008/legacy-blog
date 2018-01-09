@@ -3,13 +3,39 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import './static/css/common.scss'
+import '../static/css/common.scss';
+import {
+    BrowserRouter,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom';
 
-/*引入组件*/
-import Wrap from './components/wrap/wrap';
+import {Provider} from 'react-redux';
+import store from './redux/index';
 
+// /*引入组件*/
+import Wrap from './containers/wrap/wrap';
+import Header from './components/header/Header';
+
+const UsersPage = () => <div>Users Page</div>;
+
+const App = () => (
+    <Provider store={ store }>
+        <BrowserRouter>
+            <Switch>
+                <Route path='/' exact component={Wrap}/>
+                <Route path='/article' component={Header}/>
+                <Route path="/article/post" component={UsersPage}/>
+                <Route path="/article/post" component={UsersPage}/>
+                <Route path="/topics" component={UsersPage}/>
+                <Redirect to="/"/>
+            </Switch>
+        </BrowserRouter>
+    </Provider>
+);
 
 ReactDOM.render(
-    <Wrap />,
+    <App/>,
     document.getElementById('root')
 );

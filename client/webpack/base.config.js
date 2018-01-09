@@ -1,88 +1,51 @@
-/**
- * [webpack基础配置文件]
- */
-
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = function (options) {
-  const PUBLICPATH = options.publicPath || '/assets/'
-  const ROOTPATH = options.ROOTPATH
-  const entry = ['./app.js']
-  return {
-    name: 'browser',
-    context: path.resolve(ROOTPATH, 'src/'),
-    entry: {
-      app: options._DEV_
-        ? entry.concat(`webpack-hot-middleware/client?path=${PUBLICPATH}__webpack_hmr`) : entry
-    },
-    output: {
-      publicPath: PUBLICPATH,
-      filename: 'scripts/[name].js',
-      path: path.resolve(ROOTPATH, 'dist/'),
-      chunkFilename: '[name].js'
-    },
-    module: {
-      loaders: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader',
-          query: {
-            'cacheDirectory': true
-          }
+    const PUBLICPATH = options.publicPath || '/static/';
+    const ROOTPATH = options.ROOTPATH;
+    const entry = process.env.NODE_ENV === 'develop' ? './client/index.js' : './index.js';
+    return {
+        name: 'browser',
+        // context: path.resolve(ROOTPATH, ''),
+        entry: {
+            main: ["babel-polyfill", entry]
         },
-        {
-          test: /\.s?[ac]ss$/,
-          use: options.loaders.styles
-        }, {
-          test: /\.(jpe?g|png|gif|svg)$/i,
-          use: options.loaders.imageAssets
-        }, {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          use: options.loaders.iconFonts
-        }
-      ]
-    },
-    resolve: {
-      modules: [
-        'node_modules/'
-      ],
-      alias: {
-        'entryHtml$': path.resolve(ROOTPATH, 'src/index.html'),
-        components: path.resolve(ROOTPATH, 'src/components/'),
-        containers: path.resolve(ROOTPATH, 'src/containers/'),
-        routes: path.resolve(ROOTPATH, 'src/routes/'),
-        store: path.resolve(ROOTPATH, 'src/store/'),
-        api: path.resolve(ROOTPATH, 'src/api/'),
-        config: path.resolve(ROOTPATH, 'src/config/'),
-        constants: path.resolve(ROOTPATH, 'src/constants/'),
-        helper: path.resolve(ROOTPATH, 'src/helper/'),
-        styles: path.resolve(ROOTPATH, 'src/styles/')
-      },
-      extensions: ['.js', '.jsx', '.json']
-    },
-    plugins: (options.beforePlugins || []).concat([
-      new webpack.DefinePlugin(options.globals),
-      // 抽取js同时与ExtractTextPlugin搭配为公共块（common chunk）抽取样式文件
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'common', // chunk name, 不指定filename时，生成文件的默认文件名
-        filename: 'scripts/common.js'
-      }),
-      new HtmlWebpackPlugin({
-        alwaysWriteToDisk: true,
-        template: path.resolve(ROOTPATH, 'src/index.html'),
-        hash: false,
-        favicon: path.resolve(ROOTPATH, 'public/icon-live.png'),
-        filename: 'index.html',
-        inject: 'body',
-        minify: {
-          collapseWhitespace: true,
-          removeComments: true,
-          removeAttributeQuotes: true
-        }
-      })
-    ])
-  }
-}
+        // 入口文件输出配置；path：编译后文件出口；publicPath：引用编译后文件的base路径；
+        output: {
+            path: path.resolve(ROOTPATH, "static/dist"),
+            publicPath: PUBLICPATH,
+            filename: '[name].bundle.js'
+        },
+        module: {
+            // 加载器配置
+            loaders: [
+                {
+                    test: /\.(jsx|js)$/,
+                    exclude: path.resolve(__dirname, '../node_modules/'),
+                    use: 'babel-loader',
+                },
+                {
+                    test: /\.(scss|css)$/,
+                    use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+                }
+            ]
+        },
+        // 其他解决方案配置
+        resolve: {
+            extensions: [' ', '.js', '.jsx', '.css', '.json'],
+        },
+        // 插件项
+        plugins: [
+            // new webpack.optimize.UglifyJsPlugin({
+            //     compress: {
+            //         warnings: false,
+            //     },
+            //     output: {
+            //         comments: false,
+            //     }
+            // })
+        ]
+
+    }
+};

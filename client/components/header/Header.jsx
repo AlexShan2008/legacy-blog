@@ -1,12 +1,11 @@
 import './Header.scss';
 import React, {Component} from 'react';
-import Signin from '../signin/Signin';
+import Signin from '../signin/Sign';
 
 function Logo() {
     return (
         <div className="logo">
             <a href="/">
-                {/*Shan&Guo*/}
                 <img src="/img/logo.png" alt="AlexShan"/>
             </a>
         </div>
@@ -18,9 +17,9 @@ function Nav() {
         <nav className="nav">
             <ul className="clearfix">
                 <li><a className="active" href="/">Home</a></li>
-                <li><a href="/article/list">Latest Stories</a></li>
+                <li><a href="/article">Latest Stories</a></li>
                 <li><a href="/article/post">Post Stories</a></li>
-                <li><a href="/article/topics">Topics</a></li>
+                <li><a href="/topics">Topics</a></li>
             </ul>
         </nav>
     )

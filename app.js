@@ -1,27 +1,26 @@
 const express = require('express');
 const path = require('path');
+const port = 8080;
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('connect-flash');//消息提示模块，提示后就消失了。
 const MongoStore = require('connect-mongo')(session);
 const app = express();
 const config = require("./config");
-/*
-*React 同构直出；
-*/
-
+let isDev = process.env.NODE_ENV === 'develop'; // 是否是开发环境
 
 //使用bodyParser中间件
 app.use(bodyParser.urlencoded({extended: true}));
-//把会话数据保存在数据库中；
 
 //设置模板引擎的文件格式；
 app.set('view engine', 'html');
 //设置模板的存放目录
-app.set('views', path.resolve('client/views'));
+app.set('views', path.resolve('dist'));
 
 //如果模板后缀是HTML的话，使用EJS模板引擎的方法来进行渲染
 app.engine('html', require('ejs').__express);
+
+//把会话数据保存在数据库中；
 //使用会话中间件；
 app.use(session({
     secret: 'shan',
@@ -35,31 +34,19 @@ app.use(session({
 app.use(flash());//必须放在session和模板赋值的中间；
 app.use(function (req, res, next) {
     //给res.locals赋值，意味着所有模板都可以用；
-    // res.locals.success = req.session.success;
-    // res.locals.error = req.session.error;
-
     res.locals.success = req.flash("success").toString();
     res.locals.error = req.flash("error").toString();
     next();
 });
 //静态文件中间件的参数是静态文件根目录
 app.use(express.static(path.resolve('node_modules')));
-app.use(express.static(path.resolve('client/static')));
+app.use(express.static(path.resolve('dist')));//打包文件的加载；
+app.use(express.static(path.resolve('static')));//图片资源的加载；
 
 //返回一个路由中间件
 let index = require('./routes/index');
-let user = require('./routes/user');
-let article = require('./routes/article');
-let category = require('./routes/category');
-//如果客户端请求的路径是以/开头的话，才会交由index路由中间件来处理
-// /user/signup/s/s/s/s
-// /xxx
 app.use('/', index);
-//如果请求的URL地址是以/user开头的话
-app.use('/user', user);
-app.use('/article', article);
-app.use('/category', category);
 
-app.listen(8080, function () {
-    console.log("Server start success Port:8080");
+app.listen(port, function () {
+    console.log(`Server start success Port:${port}`);
 });

@@ -1,3 +1,5 @@
+export const SHOW_LOGIN = 'show_login'; // 显示login窗口；
+export const HIDE_LOGIN = 'hide_login'; // 显示login窗口；
 export const MY_INFO = 'my_info'; // 获取我的个人信息
 export const GET_UP_TIME = 'get_up_time'; // 起床时间
 export const SET_MY_INFO = 'set_my_info'; // 设置个人信息

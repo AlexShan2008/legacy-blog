@@ -21,7 +21,7 @@ class Wrap extends Component {
                         <Text />
                     </a>
                 </div>
-                <Clock />
+                {/*<Clock />*/}
                 <Footer />
             </div>
         )

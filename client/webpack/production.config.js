@@ -1,17 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const config = {
-    // 页面入口文件配置;main、signin为【name】;
-    entry: {
-        main: ["babel-polyfill", '../index.js']
-        // signin: './containers/user/signin.js'
-    },
-    // 入口文件输出配置；path：编译后文件出口；publicPath：引用编译后文件的base路径；
-    output: {
-        path: path.resolve(__dirname, "static/dist"),
-        publicPath: "/static/",
-        filename: '[name].bundle.js'
-    },
     module: {
         // 加载器配置
         loaders: [
@@ -30,21 +19,6 @@ const config = {
     resolve: {
         extensions: [' ', '.js', '.jsx', '.css', '.json'],
     },
-    devServer:{
-        inline:true,
-        port:8080 //端口你可以自定义
-    },
-    // 插件项
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-            output: {
-                comments: false,
-            }
-        })
-    ]
 };
 
 module.exports = config;

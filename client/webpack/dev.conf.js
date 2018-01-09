@@ -3,8 +3,7 @@ const path = require('path');
 const config = {
     // 页面入口文件配置;main、signin为【name】;
     entry: {
-        main: ["babel-polyfill", './client/index.js']
-        // main: ["babel-polyfill", './index.js']
+        main: ["babel-polyfill", './index.js']
         // signin: './containers/user/signin.js'
     },
     // 入口文件输出配置；path：编译后文件出口；publicPath：引用编译后文件的base路径；

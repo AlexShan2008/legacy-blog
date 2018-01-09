@@ -14,7 +14,6 @@ class Signin extends Component {
     componentDidMount() {
 
     }
-
     componentWillUnmount() {
 
     }
@@ -26,13 +25,11 @@ class Signin extends Component {
         })
     }
 
-    toggleShow() { //处理子函数传回来的state,改变自身的state
-        let newState ='layer-wrap';
-        if (newState) {
-            this.setState({
-                showClassName: newState
-            })
-        }
+    //处理子函数传回来的state,改变自身的state
+    toggleShow() {
+        this.setState({
+            showClassName: 'layer-wrap'
+        })
     }
 
     render() {
@@ -42,7 +39,9 @@ class Signin extends Component {
                     <li><a onClick={this.handleClick} href="javascript:void(0)">Sign in</a></li>
                     <li><a href="/user/signout">Sign out</a></li>
                 </ul>
-                <Layer showClassName={this.state.showClassName} toggleShow={ this.toggleShow }/>
+                <Layer
+                    showClassName={this.state.showClassName}
+                    toggleShow={ this.toggleShow }/>
             </div>
         )
     }
