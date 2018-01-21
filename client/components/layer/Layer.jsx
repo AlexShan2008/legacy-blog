@@ -52,18 +52,20 @@ class Layer extends Component {
             password: '',
             checkInput: '',
             emailClassName: '',
+            pwdClassName: '',
             tipClass: '',
-            tipText: 'Please input Email 11111111 Address',
-
-
+            pwdTipClass: '',
+            tipText: 'Please input Email Address',
+            pwdTipText: 'Please input Password'
         };
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.closeLayer = this.closeLayer.bind(this);
         this.checkEmail = this.checkEmail.bind(this);
-        this.resetCheckEmail = this.resetCheckEmail.bind(this);
         this.checkPwd = this.checkPwd.bind(this);
+        this.resetCheckEmail = this.resetCheckEmail.bind(this);
+        this.resetCheckPwd = this.resetCheckPwd.bind(this);
     }
 
     handleEmail(e) {
@@ -82,6 +84,7 @@ class Layer extends Component {
         e.preventDefault();
 
         this.checkEmail();
+        this.checkPwd();
 
         this.setState({
             checkInput: true
@@ -125,6 +128,7 @@ class Layer extends Component {
         }
     }
 
+
     resetCheckEmail() {
         this.setState({
             emailClassName: '',
@@ -133,8 +137,34 @@ class Layer extends Component {
     }
 
     checkPwd() {
+        const pwd = this.state.password;
+        if (!pwd) {
+            this.setState({
+                pwdClassName: 'input-row warning',
+                pwdTipClass: 'show',
+                pwdTipText: this.state.pwdTipText
+
+            })
+        }
+        if (!checkPassword(pwd)) {
+            this.setState({
+                pwdTipClass: 'show',
+                pwdClassName: 'input-row warning',
+                pwdTipText: 'Please input Correct Email Address'
+            });
+        } else {
+            this.setState({
+                pwdClassName: 'input-row',
+                pwdTipClass: ''
+            });
+        }
+    }
+
+
+    resetCheckPwd() {
         this.setState({
-            checkInput: false
+            pwdClassName: '',
+            pwdTipClass: ''
         })
     }
 
@@ -157,7 +187,10 @@ class Layer extends Component {
                             tipClass={this.state.tipClass} />
                         <Password
                             handlePassword={this.handlePassword}
-                            checkPwd={this.checkPwd} />
+                            password={this.state.password}
+                            className={this.state.pwdClassName}
+                            resetCheckPwd={this.resetCheckPwd}
+                            pwdTipClass={this.state.pwdTipClass} />
                         <Signbtn handleSignin={this.handleSubmit} />
                         <SeparatorLine />
                         <RegBtn />

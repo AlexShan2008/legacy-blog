@@ -4,7 +4,6 @@ class Email extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
             className: 'input-row',
             showError: 'hide',
             showErrorText: 'Please input Email Address'
@@ -12,18 +11,6 @@ class Email extends Component {
         this.handleFocus = this.handleFocus.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
         this.handleChange = this.handleChange.bind(this);
-    }
-
-    componentWillMount() {
-
-    }
-
-    componentDidMount() {
-
-    }
-
-    componentWillUnmount() {
-
     }
 
     handleFocus(e) {
