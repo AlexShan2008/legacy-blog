@@ -7,7 +7,7 @@ const flash = require('connect-flash');//消息提示模块，提示后就消失
 const MongoStore = require('connect-mongo')(session);
 const app = express();
 const config = require("./config");
-let isDev = process.env.NODE_ENV === 'develop'; // 是否是开发环境
+let isDev = process.env.NODE_ENV === 'develop'; // 是否是开发环境;
 
 //使用bodyParser中间件
 app.use(bodyParser.urlencoded({extended: true}));

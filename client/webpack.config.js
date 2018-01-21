@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 let isDev = process.env.NODE_ENV; // 是否是开发环境
 const publicPath = isDev === 'develop' ? 'http://localhost:9090/' : '/';
-const entry = (isDev === 'develop' || isDev === 'production') ? './client/index.tsx' : './index.tsx';
+const entry = (isDev === 'develop' || isDev === 'production') ? './client/index.js' : './index.js';
 const port = (isDev === 'develop' || isDev === 'production') ? 9090 : 8080;
 
 let config = function () {
