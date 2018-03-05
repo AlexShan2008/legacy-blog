@@ -1,8 +1,8 @@
 /**
  * Created by ShanGuo on 2017/12/21.
  */
-import './Text.scss'
-import React, {Component} from 'react';
+import "./Text.scss";
+import React, {Component} from "react";
 
 const articleData = [
     {
@@ -24,7 +24,7 @@ function Topic(props) {
         <span className="readArticle_topic">
             {props.topic}
         </span>
-    )
+    );
 }
 
 function Title(props) {
@@ -32,7 +32,7 @@ function Title(props) {
         <h3 className="readArticle_title">
             {props.title}
         </h3>
-    )
+    );
 }
 
 function Paragraph(props) {
@@ -40,7 +40,7 @@ function Paragraph(props) {
         <p className="readArticle_content">
             {props.content}
         </p>
-    )
+    );
 }
 
 function ReadArticle() {
@@ -48,7 +48,7 @@ function ReadArticle() {
         <p className="readArticle_link">
             READ ARTICLE
         </p>
-    )
+    );
 }
 
 class Text extends Component {
@@ -64,7 +64,7 @@ class Text extends Component {
                 <Paragraph content={ articleData[0].content } />
                 <ReadArticle/>
             </div>
-        )
+        );
     }
 
 }

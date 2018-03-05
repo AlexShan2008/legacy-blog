@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import Layer from '../layer/Layer';
+import React, {Component} from "react";
+import Layer from "../layer/Layer";
 
 class Signin extends Component {
     constructor(props) {
@@ -22,14 +22,14 @@ class Signin extends Component {
         e.preventDefault();
         this.setState({
             showClassName: "layer-wrap show"
-        })
+        });
     }
 
     //处理子函数传回来的state,改变自身的state
     toggleShow() {
         this.setState({
-            showClassName: 'layer-wrap'
-        })
+            showClassName: "layer-wrap"
+        });
     }
 
     render() {
@@ -43,7 +43,7 @@ class Signin extends Component {
                     showClassName={this.state.showClassName}
                     toggleShow={ this.toggleShow }/>
             </div>
-        )
+        );
     }
 }
 

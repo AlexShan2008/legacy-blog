@@ -1,12 +1,12 @@
 /**
  * Created by ShanGuo on 2017/12/18.
  */
-import React , { Component } from 'react';
+import React, { Component } from "react";
 
-class Clock extends Component{
-    constructor (props){
+class Clock extends Component {
+    constructor(props) {
         super(props);
-        this.state = { date : new Date() }
+        this.state = { date: new Date() };
     }
 
     /*lifecycle hooks interval*/
@@ -22,7 +22,7 @@ class Clock extends Component{
     }
 
     /*We can declare special methods on the component class to run some code when a component mounts and unmounts:*/
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.timerID);
     }
 
@@ -32,15 +32,15 @@ class Clock extends Component{
         });
     }
 
-    render(){
-        return(
-        <div className="content">
+    render() {
+        return (
             <div className="content">
-                <h1>Hello, world!</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+                <div className="content">
+                    <h1>Hello, world!</h1>
+                    <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+                </div>
             </div>
-        </div>
-    )
+        );
     }
 }
 

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './Layer.scss';
-import '../signin/Sign.scss';
-import Email from '../signin/Email';
-import Password from '../signin/Password';
+import React, { Component } from "react";
+import "./Layer.scss";
+import "../signin/Sign.scss";
+import Email from "../signin/Email";
+import Password from "../signin/Password";
 
 function Signbtn(props) {
     return (
@@ -11,7 +11,7 @@ function Signbtn(props) {
                 Sign in
             </button>
         </div>
-    )
+    );
 }
 
 function SeparatorLine() {
@@ -21,7 +21,7 @@ function SeparatorLine() {
                 <span>Or</span>
             </span>
         </div>
-    )
+    );
 }
 
 function RegBtn() {
@@ -32,7 +32,7 @@ function RegBtn() {
                 Create Account
             </button>
         </div>
-    )
+    );
 }
 
 function CloseIcon() {
@@ -41,22 +41,22 @@ function CloseIcon() {
             <path
                 d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"></path>
         </svg>
-    )
+    );
 }
 
 class Layer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
-            checkInput: '',
-            emailClassName: '',
-            pwdClassName: '',
-            tipClass: '',
-            pwdTipClass: '',
-            tipText: 'Please input Email Address',
-            pwdTipText: 'Please input Password'
+            email: "",
+            password: "",
+            checkInput: "",
+            emailClassName: "",
+            pwdClassName: "",
+            tipClass: "",
+            pwdTipClass: "",
+            tipText: "Please input Email Address",
+            pwdTipText: "Please input Password"
         };
         this.handleEmail = this.handleEmail.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
@@ -71,13 +71,13 @@ class Layer extends Component {
     handleEmail(e) {
         this.setState({
             email: e.target.value
-        })
+        });
     }
 
     handlePassword(e) {
         this.setState({
             password: e.target.value
-        })
+        });
     }
 
     handleSubmit(e) {
@@ -101,29 +101,29 @@ class Layer extends Component {
         this.props.toggleShow();
         this.setState({
             checkInput: false
-        })
+        });
     }
 
     checkEmail() {
         const email = this.state.email;
         if (!email) {
             this.setState({
-                emailClassName: 'input-row warning',
-                tipClass: 'show',
+                emailClassName: "input-row warning",
+                tipClass: "show",
                 tipText: this.state.tipText
 
-            })
+            });
         }
         if (!checkEmail(email)) {
             this.setState({
-                tipClass: 'show',
-                className: 'input-row warning',
-                tipText: 'Please input Correct Email Address'
+                tipClass: "show",
+                className: "input-row warning",
+                tipText: "Please input Correct Email Address"
             });
         } else {
             this.setState({
-                className: 'input-row',
-                tipClass: ''
+                className: "input-row",
+                tipClass: ""
             });
         }
     }
@@ -131,31 +131,31 @@ class Layer extends Component {
 
     resetCheckEmail() {
         this.setState({
-            emailClassName: '',
-            tipClass: ''
-        })
+            emailClassName: "",
+            tipClass: ""
+        });
     }
 
     checkPwd() {
         const pwd = this.state.password;
         if (!pwd) {
             this.setState({
-                pwdClassName: 'input-row warning',
-                pwdTipClass: 'show',
+                pwdClassName: "input-row warning",
+                pwdTipClass: "show",
                 pwdTipText: this.state.pwdTipText
 
-            })
+            });
         }
         if (!checkPassword(pwd)) {
             this.setState({
-                pwdTipClass: 'show',
-                pwdClassName: 'input-row warning',
-                pwdTipText: 'Please input Correct Email Address'
+                pwdTipClass: "show",
+                pwdClassName: "input-row warning",
+                pwdTipText: "Please input Correct Email Address"
             });
         } else {
             this.setState({
-                pwdClassName: 'input-row',
-                pwdTipClass: ''
+                pwdClassName: "input-row",
+                pwdTipClass: ""
             });
         }
     }
@@ -163,9 +163,9 @@ class Layer extends Component {
 
     resetCheckPwd() {
         this.setState({
-            pwdClassName: '',
-            pwdTipClass: ''
-        })
+            pwdClassName: "",
+            pwdTipClass: ""
+        });
     }
 
     render() {
@@ -197,7 +197,7 @@ class Layer extends Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
@@ -205,9 +205,9 @@ export default Layer;
 
 function checkEmail(email) {
     const reg = /^(\w)+@[\w\.]+$/;
-    return reg.test(email)
+    return reg.test(email);
 }
 function checkPassword(password) {
     const reg = /^[0-9a-zA-Z_]{6,8}$/;
-    return reg.test(password)
+    return reg.test(password);
 }

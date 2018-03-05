@@ -1,5 +1,5 @@
-import './Pic.scss';
-import React, {Component} from 'react';
+import "./Pic.scss";
+import React, {Component} from "react";
 
 class Pic extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class Pic extends Component {
                     alt={this.props.name}
                 />
             </div>
-        )
+        );
     }
 }
 export default Pic;

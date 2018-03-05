@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 class TogglePassword extends Component{
     constructor(props) {
@@ -11,7 +11,7 @@ class TogglePassword extends Component{
                     {this.props.showText}
                 </button>
             </div>
-        )
+        );
     }
 }
 

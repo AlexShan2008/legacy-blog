@@ -1,6 +1,6 @@
-import './Header.scss';
-import React, {Component} from 'react';
-import Signin from '../signin/Sign';
+import "./Header.scss";
+import React, {Component} from "react";
+import Signin from "../signin/Sign";
 
 function Logo() {
     return (
@@ -9,7 +9,7 @@ function Logo() {
                 <img src="/img/logo.png" alt="AlexShan"/>
             </a>
         </div>
-    )
+    );
 }
 
 function Nav() {
@@ -22,7 +22,7 @@ function Nav() {
                 <li><a href="/topics">Topics</a></li>
             </ul>
         </nav>
-    )
+    );
 }
 
 class Header extends Component {
@@ -36,7 +36,7 @@ class Header extends Component {
 
     handleClick(){
         this.setState({
-        })
+        });
     }
 
 
@@ -50,7 +50,7 @@ class Header extends Component {
                     <Signin />
                 </header>
             </div>
-        )
+        );
     }
 }
 export default Header;
