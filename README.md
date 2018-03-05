@@ -89,7 +89,7 @@ And I will record all resources and process through the entire development of th
 
 1. 项目基础布局（使用[material-ui](https://material-ui-next.com/）)
   1. 搭建首页基本结构
-  1. 响应式展示
+  1. 响应式布局(兼容PC、iPad、Mobile)
 2. 首页文章列表：
   1. 初始加载及翻页
   1. 列表自适应排布展示
