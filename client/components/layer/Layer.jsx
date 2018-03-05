@@ -68,6 +68,7 @@ class Layer extends Component {
         this.resetCheckEmail = this.resetCheckEmail.bind(this);
         this.resetCheckPwd = this.resetCheckPwd.bind(this);
         this.signIn = this.signIn.bind(this);
+        this.clearForm = this.clearForm.bind(this);
     }
 
     handleEmail(e) {
@@ -107,8 +108,14 @@ class Layer extends Component {
 
     closeLayer() {
         this.props.toggleShow();
+        this.clearForm();
+    }
+
+    clearForm(){
         this.setState({
-            checkInput: false
+            checkInput: false,
+            emailClassName: "",
+            pwdClassName: ""
         });
     }
 
@@ -177,12 +184,12 @@ class Layer extends Component {
     signIn(data) {
         // 当输入格式符合要求时发起登录；
         ajax({
-            url: "http://localhost:8333/api/login",
+            url: "/api/signin",
             method: "post",
             data: data
         }).then((value) => {
             // debugger
-            location.href = "http://localhost:8333";
+            location.href = "/";
         }).catch((err) => {
             console.log(err);
         });

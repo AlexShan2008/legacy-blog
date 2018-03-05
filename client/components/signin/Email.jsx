@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 class Email extends Component {
     constructor(props) {
@@ -73,31 +73,31 @@ class Email extends Component {
         const className = this.props.className;
         const handleEmail = this.props.handleEmail;
         const tipClass = this.props.tipClass;
-        const tipText = this.props.tipText;
+        const resetCheckEmail = this.props.resetCheckEmail;
 
         return (
             <div className="row">
-                <div className={  className ? className : this.state.className }>
+                <div className={className ? className : this.state.className}>
                     <div className="input-text">
                         <input className="email" name="email" type="email" placeholder="Email Address"
-                               onFocus={ this.handleFocus }
-                               onBlur={ this.handleBlur }
-                               onKeyUp={ this.handleChange }
-                               onChange={ handleEmail }/>
+                            onFocus={this.handleFocus}
+                            onBlur={this.handleBlur}
+                            onKeyUp={this.handleChange}
+                            onChange={handleEmail} />
                     </div>
                     <div className="input-icon">
-                        <EmailIcon/>
+                        <EmailIcon />
                     </div>
                 </div>
                 <TipText
-                    showError={ tipClass ? tipClass : this.state.showError }
-                    showErrorText={ this.state.showErrorText }/>
+                    showError={tipClass ? tipClass : this.state.showError}
+                    showErrorText={this.state.showErrorText} />
             </div>
         );
     }
 }
 
-export default  Email;
+export default Email;
 
 class TipText extends Component {
     constructor(props) {

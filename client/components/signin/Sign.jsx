@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Layer from "../layer/Layer";
 
 class Signin extends Component {
@@ -41,10 +41,10 @@ class Signin extends Component {
                 </ul>
                 <Layer
                     showClassName={this.state.showClassName}
-                    toggleShow={ this.toggleShow }/>
+                    toggleShow={this.toggleShow} />
             </div>
         );
     }
 }
 
-export default  Signin;
+export default Signin;
