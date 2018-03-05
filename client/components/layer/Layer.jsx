@@ -3,6 +3,7 @@ import "./Layer.scss";
 import "../signin/Sign.scss";
 import Email from "../signin/Email";
 import Password from "../signin/Password";
+import { ajax } from "../../util/ajax";
 
 function Signbtn(props) {
     return (
@@ -66,6 +67,7 @@ class Layer extends Component {
         this.checkPwd = this.checkPwd.bind(this);
         this.resetCheckEmail = this.resetCheckEmail.bind(this);
         this.resetCheckPwd = this.resetCheckPwd.bind(this);
+        this.signIn = this.signIn.bind(this);
     }
 
     handleEmail(e) {
@@ -95,6 +97,12 @@ class Layer extends Component {
         };
 
         console.log(data);
+
+        if (this.state.email && this.state.password) {
+            this.signIn(data);
+        } else {
+            return;
+        }
     }
 
     closeLayer() {
@@ -128,7 +136,6 @@ class Layer extends Component {
         }
     }
 
-
     resetCheckEmail() {
         this.setState({
             emailClassName: "",
@@ -160,11 +167,24 @@ class Layer extends Component {
         }
     }
 
-
     resetCheckPwd() {
         this.setState({
             pwdClassName: "",
             pwdTipClass: ""
+        });
+    }
+
+    signIn(data) {
+        // 当输入格式符合要求时发起登录；
+        ajax({
+            url: "http://localhost:8333/api/login",
+            method: "post",
+            data: data
+        }).then((value) => {
+            // debugger
+            location.href = "http://localhost:8333";
+        }).catch((err) => {
+            console.log(err);
         });
     }
 
@@ -199,6 +219,7 @@ class Layer extends Component {
             </div>
         );
     }
+
 }
 
 export default Layer;
