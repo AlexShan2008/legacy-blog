@@ -1,0 +1,102 @@
+@mixin fadeIn {
+  transition: all .3s ease;
+}
+
+.layer-wrap {
+  position: fixed;
+  z-index: 200 !important;
+  left: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  .layer-container {
+    background-color: #fff;
+    padding: 30px 50px 50px;
+    width: 400px;
+    height: 400px;
+    @include fadeIn;
+    .layer-content {
+      width: 400px;
+      .closeBtn-wrap {
+        width: 400px;
+        height: 30px;
+        .closeBtn {
+          float: right;
+          background-color: transparent !important;
+          cursor: pointer;
+          svg {
+            width: 16px;
+            height: 16px;
+            display: block;
+            fill: rgb(118, 118, 118);
+          }
+        }
+      }
+      .row {
+        width: 100%;
+        color: #484848;
+        background-color: #ffffff;
+        position: relative;
+        margin-bottom: 25px;
+        .input-row.focus {
+          border: 2px solid #3367d6;
+          @include fadeIn;
+        }
+        .input-row{
+          border: 2px solid #DBDBDB;
+          border-radius: 2px;
+          height:46px;
+          position: relative;
+          @include fadeIn;
+          .input-text {
+            overflow: hidden;
+            float: left;
+            width: 90%;
+            input{
+              display: block;
+              font: {
+                size: 19px;
+                family: "Hiragino Sans GB", "华文细黑", "STHeiti", "微软雅黑", "Microsoft YaHei", SimHei, "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+              }
+              line-height: 24px;
+              border: 0px ;
+              outline: none;
+              padding: 11px;
+              width: 100%;
+            }
+          }
+          .input-icon {
+            width: 10%;
+            float: left;
+            overflow: hidden;
+            .email-icon {
+              width: 19px;
+              height: 19px;
+              display: block;
+              position: absolute;
+              padding-top: 11px;
+              right: 12px;
+            }
+
+          }
+        }
+        .input-row.warning {
+          border: 2px solid #FF5A5F;
+        }
+        .tip-text{
+          position: absolute;
+          top:53px;
+          left:13px;
+        }
+      }
+    }
+  }
+}
+
+.layer-wrap.show {
+  display: flex !important;
+}

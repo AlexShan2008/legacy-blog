@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Layer from "../layer/Layer";
+import SigninLayer from "../layer/signLayer";
 
 class Signin extends Component {
     constructor(props) {
@@ -36,12 +36,13 @@ class Signin extends Component {
         return (
             <div className="signin">
                 <ul className="clearfix">
-                    <li><a onClick={this.handleClick} href="javascript:void(0)">Sign in</a></li>
+                    <li><a onClick={this.handleClick} href="javascript:void(0);">Sign in</a></li>
                     <li><a href="/user/signout">Sign out</a></li>
                 </ul>
-                <Layer
+                <SigninLayer
                     showClassName={this.state.showClassName}
-                    toggleShow={this.toggleShow} />
+                    toggleShow={this.toggleShow}
+                />
             </div>
         );
     }
