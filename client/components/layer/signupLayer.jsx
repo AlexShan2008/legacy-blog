@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./signupLayer.scss";
+import "./SignupLayer.scss";
 
 import { ajax } from "../../util/ajax";
 
@@ -10,6 +10,13 @@ class SignupLayer extends Component {
 
         };
 
+    }
+    render(){
+        return(
+            <div>
+                
+            </div>
+        );
     }
 
    

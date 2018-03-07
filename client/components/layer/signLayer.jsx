@@ -1,46 +1,37 @@
 import React, { Component } from "react";
-import "./signLayer.scss";
+import "./SignLayer.scss";
 import "../signin/Sign.scss";
 import Email from "../signin/Email";
 import Password from "../signin/Password";
 import { ajax } from "../../util/ajax";
 
-class Signbtn extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <div className="row signin-btn">
-                <button type="submit" onClick={this.props.handleSignin}>
-                    Sign in
+function Signbtn(props) {
+    return (
+        <div className="row signin-btn">
+            <button type="submit" onClick={props.handleSignin}>
+                Sign in
             </button>
-            </div>
-        );
-    }
+        </div>
+    );
 }
 
-class SeparatorLine extends Component {
-    render() {
-        return (
-            <div className="sepLine-wrap">
-                <span className="sepLine-text">
-                    <span>Or</span>
-                </span>
-            </div>
-        );
-    }
+function SeparatorLine() {
+    return (
+        <div className="sepLine-wrap">
+            <span className="sepLine-text">
+                <span>Or</span>
+            </span>
+        </div>
+    );
 }
 
-class CloseIcon extends Component {
-    render() {
-        return (
-            <svg viewBox="0 0 24 24" role="img" aria-label="关闭" focusable="false">
-                <path
-                    d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"></path>
-            </svg>
-        );
-    }
+function CloseIcon() {
+    return (
+        <svg viewBox="0 0 24 24" role="img" aria-label="关闭" focusable="false">
+            <path
+                d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22"></path>
+        </svg>
+    );
 }
 
 class RegWrap extends Component {
@@ -57,19 +48,15 @@ class RegWrap extends Component {
     }
 }
 
-class CloseBtn extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <div className="closeBtn-wrap clearfix">
-                <button type="button" className="closeBtn" onClick={this.props.closeLayer}>
-                    <CloseIcon />
-                </button>
-            </div>
-        );
-    }
+function CloseBtn(props) {
+
+    return (
+        <div className="closeBtn-wrap clearfix">
+            <button type="button" className="closeBtn" onClick={props.closeLayer}>
+                <CloseIcon />
+            </button>
+        </div>
+    );
 }
 
 class CreateBtn extends Component {
@@ -152,15 +139,13 @@ class SigninLayer extends Component {
         this.props.toggleShow();
         this.clearForm();
     }
-    openSignupLayer(){
+    openSignupLayer() {
 
     }
 
     clearForm() {
         this.setState({
-            checkInput: false,
-            emailClassName: "",
-            pwdClassName: ""
+            checkInput: false
         });
     }
 

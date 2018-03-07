@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import signupLayer from "../layer/signupLayer";
-import "./signupLayer.scss";
+import SignupLayer from "../layer/SignupLayer";
+import "./Signup.scss";
 
 class Signup extends Component {
     render() {
         return (
-            <signupLayer />
+            <SignupLayer />
         );
     }
 }
