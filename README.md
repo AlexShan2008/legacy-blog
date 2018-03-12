@@ -95,6 +95,7 @@ And I will record all resources and process through the entire development of th
   1. 列表自适应排布展示
 3. 侧滑导航栏切换
 4. 底部版权及联系方式声明组件  
+5. add airbnb eslint eslint-config-airbnb
 
 
 
