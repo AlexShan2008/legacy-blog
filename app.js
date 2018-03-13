@@ -48,12 +48,15 @@ let index = require("./routes/index");
 let user = require("./routes/user");
 let article = require("./routes/article");
 let category = require("./routes/category");
+let others = require("./routes/others");
 
 app.use("/", index);
 app.use("/user", user);
 app.use("/article", article);
 app.use("/category", category);
-app.use(function (req, res, next) { // 404
+
+ // 404
+app.use(function (req, res, next) {
     res.render("404", { title: "你的页面走丢了" });
 });
 
