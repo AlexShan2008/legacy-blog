@@ -46,43 +46,43 @@
         let [ball1, ball2, ball3] = [...ball];
 
         // 1.回调函数处理；
-        // function move(ele, target, callback) {
-        //     let left = parseInt(getComputedStyle(ele)["left"]);
-        //     let timer = setInterval(function () {
-        //         if (left >= target) {
-        //             clearInterval(timer);
-        //             callback();
-        //         } else {
-        //             left += 2;
-        //             ele.style.left = left + "px";
-        //         }
+        function move(ele, target, callback) {
+            let left = parseInt(getComputedStyle(ele)["left"]);
+            let timer = setInterval(function () {
+                if (left >= target) {
+                    clearInterval(timer);
+                    callback();
+                } else {
+                    left += 2;
+                    ele.style.left = left + "px";
+                }
 
-        //     }, 4)
-        // }
-        // move(ball1, 200, function () {
-        //     move(ball2, 400, function () {
-        //         move(ball3, 600,function(){
-        //             alert("callback");
-        //         });
-        //     })
-        // })
+            }, 4)
+        }
+        move(ball1, 200, function () {
+            move(ball2, 400, function () {
+                move(ball3, 600, function () {
+                    alert("callback");
+                });
+            })
+        })
 
         // 2.promise
         // generator、async都是基于promise的发展；
-        function move(ele, target) {
-            return new Promise(function (resolve, reject) {
-                let left = parseInt(getComputedStyle(ele)["left"]);
-                let timer = setInterval(function () {
-                    if (left >= target) {
-                        clearInterval(timer);
-                        resolve();
-                    } else {
-                        left += 2;
-                        ele.style.left = left + "px";
-                    }
-                }, 4)
-            })
-        }
+        // function move(ele, target) {
+        //     return new Promise(function (resolve, reject) {
+        //         let left = parseInt(getComputedStyle(ele)["left"]);
+        //         let timer = setInterval(function () {
+        //             if (left >= target) {
+        //                 clearInterval(timer);
+        //                 resolve();
+        //             } else {
+        //                 left += 2;
+        //                 ele.style.left = left + "px";
+        //             }
+        //         }, 4)
+        //     })
+        // }
         // move(ball1, 200).then(function () {
         //     return move(ball2, 400);
         // }).then(function () {
@@ -97,7 +97,7 @@
         //     yield move(ball2, 400);
         //     yield move(ball3, 600);
         // }
-        // 利用co方法自动迭代generator
+        // // 利用co方法自动迭代generator
         // function co(it) {
         //     return new Promise(function (resolve, reject) {
         //         function next(d) {
@@ -118,14 +118,14 @@
         // })
 
         // 4.async/await
-        async function a() {
-            await move(ball1, 200);
-            await move(ball2, 400);
-            await move(ball3, 600);
-        }
-        a().then(function () {
-            alert("async")
-        })
+        // async function a() {
+        //     await move(ball1, 200);
+        //     await move(ball2, 400);
+        //     await move(ball3, 600);
+        // }
+        // a().then(function () {
+        //     alert("async")
+        // })
     </script>
 </body>
 
