@@ -41,14 +41,13 @@ app.use(function (req, res, next) {
 //静态文件中间件的参数是静态文件根目录
 app.use(express.static(path.resolve("node_modules")));
 app.use(express.static(path.resolve("dist")));//打包文件的加载；
-app.use(express.static(path.resolve("static")));//图片资源的加载；
+app.use(express.static(path.resolve("static")));//图片等静态资源的加载；
 
 //返回一个路由中间件
 let index = require("./routes/index");
 let user = require("./routes/user");
 let article = require("./routes/article");
 let category = require("./routes/category");
-let others = require("./routes/others");
 
 app.use("/", index);
 app.use("/user", user);

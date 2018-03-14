@@ -24,7 +24,7 @@ router.post("/signup",middleware.checkNotLogin,upload.single("avatar"),function(
                 req.flash("error","此用户名已经被占用，请换一个用户名吧");
                 res.redirect("back");
             }else{
-                User.create(user,function(err,doc){
+                User.create(user,function(err){
                     if(err){
                         //如果error有值，就表示注册失败，返回注册面页继续填写
                         res.redirect("back");

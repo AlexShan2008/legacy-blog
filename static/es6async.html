@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container .ball {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .container .ball:nth-child(1) {
+            background-color: blue;
+            left: 0;
+            top: 20px;
+        }
+
+        .container .ball:nth-child(2) {
+            background-color: yellow;
+            left: 200px;
+            top: 150px;
+        }
+
+        .container .ball:nth-child(3) {
+            background-color: green;
+            left: 400px;
+            top: 280px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+    <!-- <script src="Promise.js"></script> -->
+    <script>
+        let ball = document.querySelectorAll(".ball");
+        let [ball1, ball2, ball3] = [...ball];
+
+        // 1.回调函数处理；
+        // function move(ele, target, callback) {
+        //     let left = parseInt(getComputedStyle(ele)["left"]);
+        //     let timer = setInterval(function () {
+        //         if (left >= target) {
+        //             clearInterval(timer);
+        //             callback();
+        //         } else {
+        //             left += 2;
+        //             ele.style.left = left + "px";
+        //         }
+
+        //     }, 4)
+        // }
+        // move(ball1, 200, function () {
+        //     move(ball2, 400, function () {
+        //         move(ball3, 600,function(){
+        //             alert("callback");
+        //         });
+        //     })
+        // })
+
+        // 2.promise
+        // generator、async都是基于promise的发展；
+        function move(ele, target) {
+            return new Promise(function (resolve, reject) {
+                let left = parseInt(getComputedStyle(ele)["left"]);
+                let timer = setInterval(function () {
+                    if (left >= target) {
+                        clearInterval(timer);
+                        resolve();
+                    } else {
+                        left += 2;
+                        ele.style.left = left + "px";
+                    }
+                }, 4)
+            })
+        }
+        // move(ball1, 200).then(function () {
+        //     return move(ball2, 400);
+        // }).then(function () {
+        //     return move(ball3, 600);
+        // }).then(function () {
+        //     alert("promise");
+        // })
+
+        // 3.Generator
+        // function* m() {
+        //     yield move(ball1, 200);
+        //     yield move(ball2, 400);
+        //     yield move(ball3, 600);
+        // }
+        // 利用co方法自动迭代generator
+        // function co(it) {
+        //     return new Promise(function (resolve, reject) {
+        //         function next(d) {
+        //             let { value, done } = it.next(d);
+        //             if (!done) {
+        //                 value.then(function (data) { // 2,txt
+        //                     next(data)
+        //                 }, reject)
+        //             } else {
+        //                 resolve(value);
+        //             }
+        //         }
+        //         next();
+        //     });
+        // }
+        // co(m()).then(function () {
+        //     alert("generator");
+        // })
+
+        // 4.async/await
+        async function a() {
+            await move(ball1, 200);
+            await move(ball2, 400);
+            await move(ball3, 600);
+        }
+        a().then(function () {
+            alert("async")
+        })
+    </script>
+</body>
+
+</html>

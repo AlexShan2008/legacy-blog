@@ -25,11 +25,11 @@ const App = () => (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Index}/>
-                <Route path="/article" component={Header}/>
+                {/* <Route path="/article" component={Header}/>
                 <Route path="/article/post" component={UsersPage}/>
                 <Route path="/article/post" component={UsersPage}/>
                 <Route path="/topics" component={UsersPage}/>
-                <Redirect to="/"/>
+                <Redirect to="/"/> */}
             </Switch>
         </BrowserRouter>
     </Provider>
