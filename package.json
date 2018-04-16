@@ -1,7 +1,7 @@
 {
   "name": "myblog",
   "version": "1.0.0",
-  "description": "```\r npm install express ejs body-parser debug express-session connect-mongo mongoose connect-flash multer bootstrap -S\r ```",
+  "description": "my own blog",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
