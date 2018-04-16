@@ -7,7 +7,7 @@
     "test": "mocha",
     "start": "node app.js",
     "dev": "cross-env NODE_ENV=develop webpack-dev-server --config ./client/webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config ./client/webpack.config.js"
+    "build": "cross-env NODE_ENV=production webpack -p --config ./client/webpack.config.js"
   },
   "keywords": [],
   "author": "",
