@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import '../static/css/common.scss';
+import './static/css/common.scss';
 import {
   BrowserRouter,
   Route,
@@ -19,6 +19,8 @@ import Index from './containers/Index';
 import Header from './components/header/Header';
 
 const UsersPage = () => <div>Users Page</div>;
+
+console.log(888888)
 
 const App = () => (
   <Provider store={store}>
