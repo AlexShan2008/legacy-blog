@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const port = 8080;
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const flash = require('connect-flash');//消息提示模块，提示后就消失了。配合express-session使用
+const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const app = express();
 const config = require('./config');
@@ -44,10 +44,10 @@ app.use(express.static(path.resolve('dist')));//打包文件的加载；
 app.use(express.static(path.resolve('static')));//图片等静态资源的加载；
 
 //返回一个路由中间件
-let index = require('./routes/index');
-let user = require('./routes/user');
-let article = require('./routes/article');
-let category = require('./routes/category');
+let index = require('./router/index');
+let user = require('./router/user');
+let article = require('./router/article');
+let category = require('./router/category');
 
 app.use('/', index);
 app.use('/user', user);

@@ -1,9 +1,9 @@
 /**
  * Created by ShanGuo on 2017/12/28.
  */
-let  add =require("../client/add");
+let  add =require('../client/add');
 
-it("should return 3",
+it('should return 3',
     ()=> {
         let sum = add(1,2);
         (sum).should.equal(3);

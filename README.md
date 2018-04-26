@@ -98,8 +98,7 @@ And I will record all resources and process through the entire development of th
 5. add airbnb eslint eslint-config-airbnb
 
 ```
-    <!-- <link rel="shortcut icon" href="./assert/img/favicon.png"> -->
-    <!-- <link rel="apple-touch-icon" href="./assert/img/favicon.png"> -->
+
     ```
 
 

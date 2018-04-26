@@ -14,6 +14,6 @@ let UserSchema = new mongoose.Schema({
     email: String
 });
 
-let User = mongoose.model("User", UserSchema);
+let User = mongoose.model('User', UserSchema);
 
 exports.User = User;

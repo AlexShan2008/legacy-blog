@@ -10,7 +10,9 @@ class Index extends Component {
         super(props);
         this.state = {};
     }
-
+    componentWillMount(){
+      console.log(99999)
+    }
     render() {
         return (
             <div className='app-container'>

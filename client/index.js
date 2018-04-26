@@ -20,18 +20,18 @@ import Header from './components/header/Header';
 
 const UsersPage = () => <div>Users Page</div>;
 
-console.log(888888)
+console.log(888888);
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
         <Route path='/' exact component={Index} />
-        {/* <Route path='/article' component={Header}/>
-                <Route path='/article/post' component={UsersPage}/>
-                <Route path='/article/post' component={UsersPage}/>
-                <Route path='/topics' component={UsersPage}/>
-                <Redirect to='/'/> */}
+        <Route path='/article' component={Header}/>
+        <Route path='/article/post' component={UsersPage}/>
+        <Route path='/article/post' component={UsersPage}/>
+        <Route path='/topics' component={UsersPage}/>
+        <Redirect to='/'/>
       </Switch>
     </BrowserRouter>
   </Provider>

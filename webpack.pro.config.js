@@ -19,6 +19,7 @@ let config = function () {
     // 输出配置; path：编译后文件出口；publicPath：引用编译后文件的base路径；
     output: {
       path: path.resolve(__dirname, '../dist'),
+      publicPath: '/',
       filename: '[name].bundle.js'
     },
     optimization: {
@@ -113,7 +114,7 @@ let config = function () {
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin([{ //拷贝静态资源
         from: './client/static',
-        to: 'public'
+        to: 'static'
       }]),
       new PurifyCss({
         paths: Glob.sync(path.join(__dirname, 'src/*.html'))

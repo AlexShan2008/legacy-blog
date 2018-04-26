@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCss = require('purifycss-webpack');//去掉多余css，没有使用的css代码
 const Glob = require('glob');//搜索引用；
+const host = 'localhost';
 const port = 8080;
 
 let config = function () {
@@ -18,7 +19,8 @@ let config = function () {
     },
     // 输出配置; path：编译后文件出口；publicPath：引用编译后文件的base路径；
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, '../dist'),
+      publicPath: `http://${host}:${port}/`,
       filename: '[name].bundle.js'
     },
     optimization: {
@@ -95,18 +97,18 @@ let config = function () {
       historyApiFallback: true,
       inline: true,
       hot: true,
-      port: 9090,
+      port: port,
       headers: {
         'Access-Control-Allow-Origin': '*'
       },
-      proxy: {
-        '/': {
-          bypass: function (req, res, proxyOptions) {
-            console.log('Skipping proxy for browser request.');
-            return `./client/template/index.html`;
-          }
-        }
-      }
+      // proxy: {
+      //   '/': {
+      //     bypass: function (req, res, proxyOptions) {
+      //       console.log('Skipping proxy for browser request.');
+      //       return `./client/template/index.html`;
+      //     }
+      //   }
+      // }
     },
     // 插件项
     plugins: [
