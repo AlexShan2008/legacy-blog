@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCss = require('purifycss-webpack');//去掉多余css，没有使用的css代码
 const Glob = require('glob');//搜索引用；
+
+let isDev = process.env.NODE_ENV === 'development'; // 是否是开发环境
 const host = 'localhost';
 const port = 8080;
 
@@ -19,27 +21,27 @@ let config = function () {
     },
     // 输出配置; path：编译后文件出口；publicPath：引用编译后文件的base路径；
     output: {
-      path: path.resolve(__dirname, '../dist'),
-      publicPath: `http://${host}:${port}/`,
+      path: path.join(__dirname, 'dist'),
+      publicPath: isDev ? `http://${host}:${port}/` : '/',
       filename: '[name].bundle.js'
     },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          vendor: {//先抽离第三方插件
-            test: '/node_modules/',
-            chunks: 'initial',//初始化时进行打包
-            name: 'vendor',
-            priority: 10 //优先级 数越大，优先越高
-          },
-          commons: {
-            chunks: 'initial',
-            name: 'commons',
-            minSize: 0 //只要超出0字节就生成新包
-          }
-        }
-      }
-    },
+    // optimization: {
+    //   splitChunks: {
+    //     cacheGroups: {
+    //       vendor: {//先抽离第三方插件
+    //         test: '/node_modules/',
+    //         chunks: 'initial',//初始化时进行打包
+    //         name: 'vendor',
+    //         priority: 10 //优先级 数越大，优先越高
+    //       },
+    //       commons: {
+    //         chunks: 'initial',
+    //         name: 'commons',
+    //         minSize: 0 //只要超出0字节就生成新包
+    //       }
+    //     }
+    //   }
+    // },
     // Enable sourcemaps for debugging webpack's output.
     devtool: 'source-map',
     // 其他解决方案配置
@@ -76,12 +78,12 @@ let config = function () {
         //   })
         // },
         {
-          test: /\.(png|gif|jpg)$/,
+          test: /\.(png|gif|jpg|webp|JPEG)$/i,
           use: [{
             loader: 'url-loader',
             options: {
-              limit: 5, //大于5自己，调用file-loader，生成图片，否则生成base64数据
-              outputPath: 'images/'
+              limit: 5, //大于5字节，调用file-loader，生成图片，否则生成base64数据
+              outputPath: '/static/img/'
             }
           }]
         },
@@ -110,6 +112,8 @@ let config = function () {
       //   }
       // }
     },
+    devtool: isDev ? 'cheap-module-eval-source-map' : '',
+    context: __dirname,
     // 插件项
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
@@ -118,10 +122,10 @@ let config = function () {
         to: 'public'
       }]),
       new PurifyCss({
-        paths: Glob.sync(path.join(__dirname, 'src/*.html'))
+        paths: Glob.sync(path.join(__dirname, 'client/*.html'))
       }),
       new HtmlWebpackPlugin({
-        template: './client/template/index.html',
+        template: './client/index.html',
         filename: 'index.html',
         chunks: ['vendor', 'main'],
         inject: true,
