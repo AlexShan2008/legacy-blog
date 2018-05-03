@@ -98,8 +98,8 @@ And I will record all resources and process through the entire development of th
 5. add airbnb eslint eslint-config-airbnb
 
 ```
-
-    ```
+npm i history
+```
 
 
 

@@ -70,22 +70,6 @@ h1{
       }
 
     }
-    .signin {
-      float: right;
-      height: 100%;
-      ul {
-        height: 100%;
-        li {
-          @include displayTable;
-          margin: 0 10px;
-          a {
-            @include verticalMiddle;
-            @include font16;
-            color: #000;
-          }
-        }
-      }
-    }
   }
 
 }

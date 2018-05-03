@@ -9,24 +9,7 @@ router.get('/', function (req, res) {
         });
 });
 
-router.get('/article', function (req, res) {
-    res.render('index',
-        {
-            title: 'Alex Shan’s blog'
-        });
-});
-router.get('/article/post', function (req, res) {
-    res.render('index',
-        {
-            title: 'Alex Shan’s blog'
-        });
-});
-router.get('/topics', function (req, res) {
-    res.render('index',
-        {
-            title: 'Alex Shan’s blog'
-        });
-});
+
 module.exports = router;
 
 

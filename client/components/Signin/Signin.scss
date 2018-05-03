@@ -1,3 +1,45 @@
+@mixin verticalMiddle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+@mixin displayTable {
+  height: 100%;
+  display: table;
+}
+@mixin font16{
+  color: #757575;
+  font: {
+    size: 16px;
+    family: "-webkit-pictograph";
+  }
+}
+
+.signin {
+  float: right;
+  height: 100%;
+  ul {
+    height: 100%;
+    li {
+      @include displayTable;
+      margin: 0 10px;
+      a {
+        @include verticalMiddle;
+        @include font16;
+        color: #000;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
 .showPassword-btn {
   display: block;
   text-align: right;
@@ -36,37 +78,7 @@
 
 }
 
-.sepLine-wrap {
-  overflow: hidden;
-  text-align: center;
-  .sepLine-text:before, .sepLine-text:after {
-    content: '';
-    position: absolute;
-    border-bottom: 1px solid #e4e4e4;
-    top: 50%;
-    width: 5000px;
-  }
-  .sepLine-text:before {
-    right: 100%;
-  }
-  .sepLine-text {
-    position: relative;
-    font: {
-      weight: normal;
-      family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
-      size: 15px !important;
-    }
-    word-wrap: break-word;
-    line-height: 18px;
-    letter-spacing: 0.2px;
-    padding: 0 16px 0 16px;
-    color: #767676;
-    display: inline;
-  }
-  .sepLine-text:after {
-    left: 100%;
-  }
-}
+
 
 .reg-warp {
   width: 400px;

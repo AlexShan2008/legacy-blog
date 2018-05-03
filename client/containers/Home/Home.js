@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../../components/header/Header';
-import Footer from '../../components/footer/Footer';
-import Pic from '../../components/pic/Pic';
-import Text from '../../components/text/Text';
+import { Link } from 'react-router-dom';
+
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Pic from '../../components/Pic/Pic';
+import Text from '../../components/Text/Text';
 import Clock from '../../components/Clock';
 import Modal from '../Modal/Modal';
 
 import actions from '../../store/actions/home';
-
 
 class Home extends Component {
   constructor(props) {
@@ -21,10 +22,10 @@ class Home extends Component {
         <Modal />
         <Header />
         <div className='content main text-center'>
-          <a href='/article-01' className='article clearfix'>
+          <Link to='/article-01' className='article clearfix'>
             <Pic url='/img/banner/banner-01_small.jpg' name='beijing' />
             <Text />
-          </a>
+          </Link>
         </div>
         <Clock />
         <Footer />
