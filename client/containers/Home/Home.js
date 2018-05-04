@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 import Pic from '../../components/Pic/Pic';
 import Text from '../../components/Text/Text';
 import Clock from '../../components/Clock';
@@ -28,7 +27,6 @@ class Home extends Component {
           </Link>
         </div>
         <Clock />
-        <Footer />
       </div>
     );
   }

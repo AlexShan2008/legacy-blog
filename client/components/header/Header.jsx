@@ -10,7 +10,7 @@ class Logo extends Component {
     return (
       <div className='logo'>
         <Link to='/'>
-          <img src='/img/logo.png' alt='AlexShan' />
+          <img src='./static/img/logo.png' alt='AlexShan' />
         </Link>
       </div>
     );

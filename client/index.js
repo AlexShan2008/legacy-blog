@@ -31,14 +31,15 @@ const App = () => (
     <Router history={history}>
       <div>
         <Header />
+        <h3>888888888888</h3>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/article' component={Header} />
+          <Route path='/article' component={UsersPage} />
           <Route path='/article/post' component={UsersPage} />
           <Route path='/topics' component={UsersPage} />
           <Redirect to='/' />
         </Switch>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   </Provider>
