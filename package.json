@@ -6,8 +6,8 @@
   "scripts": {
     "test": "mocha",
     "start": "node app.js",
-    "dev": "webpack-dev-server --mode=development",
-    "build": "webpack --mode=production"
+    "dev": "webpack-dev-server --mode=development --config webpack.config.dev.js",
+    "build": "webpack --mode=production --config webpack.config.prod.js"
   },
   "keywords": [
     "My fullstack blog"

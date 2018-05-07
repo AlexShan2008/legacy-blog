@@ -1,5 +1,6 @@
 import "./Footer.scss";
 import React, {Component} from "react";
+import logoIcon from '../../static/img/logo-icon-gray-round.png'
 
 function ICP() {
     return (
@@ -11,7 +12,7 @@ function ICP() {
 
 function Icon() {
     return (
-        <img className="icon dis_i" src="/img/logo-icon-gray-round.png" alt="数据可视化-AlexShan"/>
+        <img className="icon dis_i" src={logoIcon} alt="数据可视化-AlexShan"/>
     );
 }
 

@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
- 
+
 import './Header.scss';
 import Signin from '../Signin/Signin';
 import Signup from '../Signup/Signup';
+import logo from '../../static/img/logo.png'
 
 class Logo extends Component {
   render() {
     return (
       <div className='logo'>
         <Link to='/'>
-          <img src='./static/img/logo.png' alt='AlexShan' />
+          <img src={logo} alt='AlexShan' />
         </Link>
       </div>
     );

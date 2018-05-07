@@ -10,6 +10,8 @@ import Modal from '../Modal/Modal';
 
 import actions from '../../store/actions/home';
 
+import banner from '../../static/img/banner/banner-01.jpg';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class Home extends Component {
         <Header />
         <div className='content main text-center'>
           <Link to='/article-01' className='article clearfix'>
-            <Pic url='/img/banner/banner-01_small.jpg' name='beijing' />
+            <Pic url={banner} name='beijing' />
             <Text />
           </Link>
         </div>
@@ -33,5 +35,5 @@ class Home extends Component {
 }
 
 export default connect((state) => ({
-...state
+  ...state
 }), actions)(Home);

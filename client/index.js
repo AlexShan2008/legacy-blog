@@ -24,6 +24,11 @@ import Home from './containers/Home/Home';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
+// 配置所有相关自动热更新；
+if (module.hot) {
+  module.hot.accept();
+}
+
 const UsersPage = () => <div>Users Page</div>;
 
 const App = () => (
@@ -31,7 +36,6 @@ const App = () => (
     <Router history={history}>
       <div>
         <Header />
-        <h3>888888888888</h3>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/article' component={UsersPage} />

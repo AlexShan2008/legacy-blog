@@ -5,7 +5,6 @@ class Pic extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         return (
             <div className="pic float-l">
